@@ -3,7 +3,6 @@ import requests
 import time
 from parsel import Selector
 from tech_news.database import create_news
-from tech_news.database import find_news
 
 
 # Requisito 1
