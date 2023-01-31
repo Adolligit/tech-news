@@ -21,7 +21,7 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content) -> list:
-    links = Selector(text=html_content).css(".next::attr(href)")
+    links = Selector(text=html_content).css(".entry-title::attr(href)").getall()
     return links
 
 
