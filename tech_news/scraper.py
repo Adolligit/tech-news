@@ -57,6 +57,7 @@ def scrape_news(html_content):
         "category": category,
     }
 
+
 # Requisito 5
 def get_tech_news(amount):
     """Seu código deve vir aqui"""
