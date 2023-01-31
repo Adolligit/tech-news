@@ -11,9 +11,10 @@ def fetch(url):
             3,
             {"user-agent": "Fake user-agent"}
         )
-    except (requests.HTTPError):
+    except (requests.Timeout, requests.HTTPError):
         return None
     else:
+        response.raise_for_status()
         return response.text
 
 
