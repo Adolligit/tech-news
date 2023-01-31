@@ -32,7 +32,26 @@ def scrape_next_page_link(html_content):
 # Requisito 4
 def scrape_news(html_content):
     page = Selector(html_content)
+    url = page.css('head').xpath('//link[@rel="canonical"]').attrib['href']
+    title = page.xpath('//title/text()').get()
+    timestamp = page.css('.meta-date::text').get()
+    writer = page.css('.author a::text').get()
+    comments_count = page.xpath('//div[@id="comments"]//h5/text()').get()
+    comments_count = comments_count.split()[0] if comments_count else 0
+    summary = page.css('.entry-content').xpath('//p/text()').get()
+    tags = page.xpath('//a[@rel="tag"]/text()').getall()
+    category = page.xpath('//span[@class="label"]/text()').get()
 
+    return {
+        "url": url,
+        "title": title,
+        "timestamp": timestamp,
+        "writer": writer,
+        "comments_count": comments_count,
+        "summary": summary,
+        "tags": tags,
+        "category": category,
+    }
 
 # Requisito 5
 def get_tech_news(amount):
