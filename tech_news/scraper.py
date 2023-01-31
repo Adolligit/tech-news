@@ -31,7 +31,7 @@ def scrape_next_page_link(html_content):
 
 # Requisito 4
 def scrape_news(html_content):
-    """Seu código deve vir aqui"""
+    page = Selector(html_content)
 
 
 # Requisito 5
