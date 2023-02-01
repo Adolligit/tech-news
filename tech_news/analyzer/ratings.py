@@ -1,4 +1,5 @@
 from tech_news.database import find_news
+from collections import Counter
 
 
 def criterion(e):
@@ -22,4 +23,10 @@ def top_5_news():
 
 # Requisito 11
 def top_5_categories():
-    """Seu código deve vir aqui"""
+    """
+        Retorna um ranking com as 5 categorias mais populares entres as
+        notícias armazenadas no banco de dados.
+    """
+    categories = [news["category"] for news in find_news()]
+    count = Counter(sorted(categories))
+    return [top_categories[0] for top_categories in count.most_common(5)]
