@@ -5,7 +5,7 @@ from datetime import datetime
 # Requisito 6
 def search_by_title(title):
     """
-        Busca por notícias que correspondem ao 'title' e retorna o título 
+        Busca por notícias que correspondem ao 'title' e retorna o título
         e sua url
     """
     found = search_news({"title": {"$regex": title, "$options": "i"}})
