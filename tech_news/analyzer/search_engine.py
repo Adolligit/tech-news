@@ -54,4 +54,14 @@ def search_by_tag(tag):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    """
+        Vai encontrar notícias que tem a mesma categoria fornecida como
+        parâmetro. Retornará uma lista com tuplas, contendo 'title' e 'url' de
+        cada notícia encontrada.
+    """
+    found = search_news({"category": {"$regex": category, "$options": "i"}})
+
+    return [
+        (news["title"], news["url"])
+        for news in found
+    ]
