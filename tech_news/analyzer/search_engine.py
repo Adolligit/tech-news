@@ -4,7 +4,10 @@ from datetime import datetime
 
 # Requisito 6
 def search_by_title(title):
-    """Busca e retorna notícias pelo título fornecido como parâmetro"""
+    """
+        Busca por notícias que correspondem ao 'title' e retorna o título 
+        e sua url
+    """
     found = search_news({"title": {"$regex": title, "$options": "i"}})
 
     return [
@@ -15,7 +18,9 @@ def search_by_title(title):
 
 # Requisito 7
 def search_by_date(date):
-    """Busca e retorna nóticias que correspondem a data fornecida"""
+    """
+        Procura por notícias que correspondem a data. Retorna seu título e url.
+    """
     try:
         datetime.fromisoformat(date)
         formatted_date = date.split('-')
@@ -34,7 +39,11 @@ def search_by_date(date):
 
 # Requisito 8
 def search_by_tag(tag):
-    """ai papito"""
+    """
+        Encontra notícias que corresponde a 'tag' fornecedida como parâmetro.
+        Retorna uma lista de tuplas com 'title' e 'url' de cada notícia
+        encontrada.
+    """
     found = search_news({"tags": {"$regex": tag, "$options": "i"}})
 
     return [
