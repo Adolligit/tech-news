@@ -28,6 +28,3 @@ def analyzer_menu():
         print(arr[int(input(c))-1])
     except (ValueError, IndexError):
         print("Opção inválida", file=sys.stderr)
-
-
-# analyzer_menu()
